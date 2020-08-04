@@ -3,7 +3,6 @@ import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import TeacherItem from '../../components/TeacherItem';
 
-
 import './styles.css';
 
 const TeacherList: React.FC = () => {
@@ -13,17 +12,17 @@ const TeacherList: React.FC = () => {
         <form id="search-teachers">
           <div className="input-block">
             <label htmlFor="subject">Matéria</label>
-            <input type="text" id="subject"/>
+            <input type="text" id="subject" />
           </div>
 
           <div className="input-block">
             <label htmlFor="week_day">Dia da semana</label>
-            <input type="text" id="week_day"/>
+            <input type="text" id="week_day" />
           </div>
 
           <div className="input-block">
             <label htmlFor="time">Hora</label>
-            <input type="text" id="time"/>
+            <input type="text" id="time" />
           </div>
         </form>
       </PageHeader>
@@ -34,8 +33,8 @@ const TeacherList: React.FC = () => {
         <TeacherItem />
         <TeacherItem />
       </main>
-    </div>  
+    </div>
   );
-}
+};
 
 export default TeacherList;
