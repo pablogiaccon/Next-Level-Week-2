@@ -1,39 +1,44 @@
 import React from 'react';
-import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
+
+import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
+import { ITeacher } from '../../pages/TeacherList';
 
-const TeacherItem: React.FC = () => {
+interface ITeacherItem {
+  teacher: ITeacher;
+}
+
+const TeacherItem: React.FC<ITeacherItem> = ({ teacher }) => {
   return (
     <article className="teacher-item">
-          <header>
-            <img src="https://avatars0.githubusercontent.com/u/15160773?s=460&u=ba848e7c7309af9d16c1babc5771283ecadf59b5&v=4" alt="Pablo Giaccon"/>
+      <header>
+        <img src={teacher.avatar} alt={teacher.name} />
 
-            <div>
-              <strong>Pablo Giaccon</strong>
-              <span>Química</span>
-            </div>
-          </header>
+        <div>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
+        </div>
+      </header>
 
-          <p>
-            Entusiasta das melhores tecnologias de química avançada.
-            <br/><br/>
-            Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.
-          </p>
+      <p>{teacher.bio}</p>
 
-          <footer>
-            <p>
-              Preço/hora
-              <strong>R$ 80,00</strong>
-            </p>
+      <footer>
+        <p>
+          Preço/hora
+          <strong>
+            R$
+            {teacher.cost}
+          </strong>
+        </p>
 
-            <button>
-              <img src={whatsappIcon} alt="Whatsapp"/>
-              Entrar em contato
-            </button>
-          </footer>
-        </article>
+        <a href={`https://wa.me/${teacher.whatsapp}`}>
+          <img src={whatsappIcon} alt="Whatsapp" />
+          Entrar em contato
+        </a>
+      </footer>
+    </article>
   );
-}
+};
 
 export default TeacherItem;
